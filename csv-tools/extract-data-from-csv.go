@@ -5,28 +5,29 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"os"
 	"strings"
 
-    "golang.org/x/text/transform"
-    "golang.org/x/text/encoding/japanese"
+	"golang.org/x/text/encoding/japanese"
+	"golang.org/x/text/transform"
 )
 
 var (
 	mFlag = flag.String("m", "2019-01", "Set this month.")
 )
 
-func transformEncoding( rawReader io.Reader, trans transform.Transformer) (string, error) {
-    ret, err := ioutil.ReadAll(transform.NewReader(rawReader, trans))
-    if err == nil {
-        return string(ret), nil
-    } else {
-        return "", err
-    }
+func transformEncoding(rawReader io.Reader, trans transform.Transformer) (string, error) {
+	ret, err := ioutil.ReadAll(transform.NewReader(rawReader, trans))
+	if err == nil {
+		return string(ret), nil
+	} else {
+		return "", err
+	}
 }
 
 func ShiftJIStoUTF8(str string) (string, error) {
-    return transformEncoding(strings.NewReader(str), japanese.ShiftJIS.NewDecoder())
+	return transformEncoding(strings.NewReader(str), japanese.ShiftJIS.NewDecoder())
 }
 
 func main() {
@@ -64,10 +65,10 @@ func main() {
 					csvRecord = csvRecord + "," + v
 				}
 			}
-                        result, err := ShiftJIStoUTF8(csvRecord)
-                        if err != nil {
-                           panic(err)
-                        }
+			result, err := ShiftJIStoUTF8(csvRecord)
+			if err != nil {
+				panic(err)
+			}
 			fmt.Println(result)
 		}
 	}
