@@ -10,6 +10,11 @@ import (
 	"strings"
 )
 
+var (
+	Version  string
+	Revision string
+)
+
 type Issue struct {
 	Url   string `json:"html_url"`
 	Title string `json:"title"`
@@ -79,8 +84,9 @@ func main() {
 	username := ""
 	token := ""
 	args := os.Args
+	fmt.Printf("ore-no-contribution version: %s reviosn: %s\n", Version, Revision)
 	if len(args) < 2 {
-		fmt.Println("failed")
+		fmt.Println("failed:")
 		os.Exit(1)
 	}
 	username = args[1]
