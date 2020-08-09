@@ -17,8 +17,8 @@ Output one line of csv from newline separated list.
 
 ## Licence
 
-[MIT](https://opensource.org/licenses/mit-license.php)
+  - [MIT](https://opensource.org/licenses/mit-license.php)
 
 ## Author
 
-[bornite](https://github.com/bornite)
+  - [bornite](https://github.com/bornite)
