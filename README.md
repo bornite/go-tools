@@ -1,4 +1,4 @@
-go-tools
+tools
 ====
 
 Small tools written in golang.
