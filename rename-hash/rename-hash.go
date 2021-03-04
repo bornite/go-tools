@@ -29,7 +29,7 @@ func main() {
 	}
 
 	for _, fname := range fnames {
-		fmt.Println(fname + "を処理します " + time.Now().String() + " (" + strconv.FormatInt(time.Now().Unix(), 10) + ")")
+		fmt.Println("Processing " + fname + " " + time.Now().String() + " (" + strconv.FormatInt(time.Now().Unix(), 10) + ")")
 		if err := os.Rename(fname, renameHash(fname)); err != nil {
 			fmt.Println(err)
 		}
@@ -71,7 +71,7 @@ func main() {
 	}
 
 	for _, fname := range fnames {
-		fmt.Println(fname + "を処理します " + time.Now().String() + " (" + strconv.FormatInt(time.Now().Unix(), 10) + ")")
+		fmt.Println("Processing " + fname + " " + time.Now().String() + " (" + strconv.FormatInt(time.Now().Unix(), 10) + ")")
 		if err := os.Rename(fname, renameHash(fname)); err != nil {
 			fmt.Println(err)
 		}
